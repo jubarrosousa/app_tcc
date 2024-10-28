@@ -260,7 +260,8 @@ elif st.session_state.pagina == 2:
                     key= "texto_1"
                 )
 
-        col1, col2, col3 = st.columns([1, 0, 1])
+        #col1, col2, col3 = st.columns([1, 0, 1])
+        col1, col3 = st.columns([1, 1])
 
         st.session_state.materias_lecionadas = st.session_state.materias_lecionadas
         st.session_state.materias_lecionadas_extra = st.session_state.materias_lecionadas_extra
