@@ -260,7 +260,7 @@ elif st.session_state.pagina == 2:
                     key= "texto_1"
                 )
 
-        col1, col2, col3 = st.columns([1, 1, 1])
+        col1, col2, col3 = st.columns([1, 0, 1])
 
         st.session_state.materias_lecionadas = st.session_state.materias_lecionadas
         st.session_state.materias_lecionadas_extra = st.session_state.materias_lecionadas_extra
@@ -273,9 +273,9 @@ elif st.session_state.pagina == 2:
             st.form_submit_button("Voltar", on_click=pagina_anterior)
             #voltar = st.form_submit_button("Voltar")
 
-        with col2:
-            st.form_submit_button("Próxima", on_click=proxima_pagina)
-            #proxima = st.form_submit_button("Próxima")
+        # with col2:
+        #     st.form_submit_button("Próxima", on_click=proxima_pagina)
+        #     #proxima = st.form_submit_button("Próxima")
 
         with col3:
             enviar = st.form_submit_button("Enviar", on_click = proxima_pagina)
