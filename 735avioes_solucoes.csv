@@ -1,0 +1,555 @@
+"solution","user_id","console","user_class_id","id","outcome","content","user_id","problem_id"
+"def avioes(c, p_compr, p_compet):
+    '''calcula se a quantidade de papel comprado pela diretora é suficiente'''
+    if c=10 and p_compr=100 and p_compet=10:
+        return 'Suficiente'
+    elif c=10 and p_compr=90 and p_compet=10:
+        return 'Insuficiente
+    elif c=5 and p_compr=40 and p_compet=2:
+        return 'Suficiente'",2373,"SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3
+SyntaxError: bad input on line 3",78,352165,F,"1. Corretude do código: 0/75 - As condições que você testou estão incorretas. Acredito que você tentou fazer baseado em exemplos específicos e não geral. 
+2. Implementação da documentação: 25/25 - Faltou implementar os tipos de entradas na função. A documentação também poderia ser um pouco mais esclarecedora. 
+Nota: 25/100",1760,735
+"# Coloque um comentário dizendo o que a função faz
+# Escolha nomes elucidativos para suas variáveis
+# int, int, int -> string
+def avioes(c,p_compr,p_compet):
+    """"""função que calcula a quantidade de folhas por participante
+  na competição da escola de avião""""""
+    ''' int, int, int -> string '''
+    if (folhas) !=int and type(folhas) !=float:
+        return ""Entrada invalida""
+    if folhas==(10,100,10):
+        return str(folhas)+'suficiente'
+    if folhas>(10,90,10):
+        return str(folhas)+'insuficiente'
+    elif folhas<=(5,40,2):
+        return str(folhas)+'suficiente'",2430,"NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8
+NameError: name 'folhas' is not defined on line 8",88,357135,F,"Documentação tá boa, mas a variável folhas não existe. 25 pela documentação",1760,735
+"# Coloque um comentário dizendo o que a função faz
+# Escolha nomes elucidativos para suas variáveis
+# int, int, int -> string
+def avioes(c, comprado, pcomp):
+    '''Função que dados os números de competidores, o número de folhas de papel especial compradas pela Diretora e o número de folhas que cada competidor deve receber, determina se o número de folhas é suficiente; int, int, int -> string'''
+	if c*pcomp==comprado:
+        return ""Suficiente""
+    
+    if c*pcomp>comprado:
+        return ""Suficiente""
+    
+    if c*pcomp<comprado:
+        return ""Insuficiente""",2894,"'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'",117,496357,F,,,735
+"# Coloque um comentário dizendo o que a função faz
+# Escolha nomes elucidativos para suas variáveis
+# int, int, int -> string
+def avioes(c, p_compr, p_compet):
+""essa função devolve como resposta se o número de papeis especial comprados são suficientes dados os parâmetros de entrada folhas essenciais, folhas compradas e número de competidores"" 
+    if c*p_compet<= p_compr:
+        return ""Suficiente""
+    elif c*p_compet> p_compr:
+        return ""Insuficiente""",2895,"SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5
+SyntaxError: bad input on line 5",103,496384,F,,,735
+"# Coloque um comentário dizendo o que a função faz
+# Escolha nomes elucidativos para suas variáveis
+# int, int, int -> string
+def avioes(competidores,papelComprado,papelDistribuido):
+    '''Função que, dados o número de competidores, o número de folhas de papel
+especial compradas pela Diretora e o número de folhas distribuídas para cada competidor,
+determina se o número de folhas comprado é suficiente.
+int, int, int->str'''
+    if int((papelComprado/competidores)<=papelDistribuido):
+        return ('Insuficiente')
+    else:
+        return ('Suficiente')",3050,"'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Insuficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'
+'Suficiente'",132,553888,F,"Para 1 caso falhou pois você colocou que o papel comprado dividido pelos competidores deveria ser menor ou IGUAL ao papel distribuido, e o caso falhou por causa que se o numero de papeis for igual ao de competidores, ele considera insuficiente, deveria ter colocado sendo somente menor, e nao menor ou igual",1773,735
