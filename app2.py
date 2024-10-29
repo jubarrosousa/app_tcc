@@ -8,10 +8,10 @@ import pyodbc
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 
-# username = st.secrets['DB_USERNAME']
-# password = st.secrets['DB_PASSWORD']
-username='juliana'
-password='Sc9JiGm99K8sq_N'
+username = st.secrets['DB_USERNAME']
+password = st.secrets['DB_PASSWORD']
+#username='juliana'
+#password='Sc9JiGm99K8sq_N'
 
 introducao = """Olá, meu nome é Juliana, e meu TCC tem como objetivo avaliar se o modelo de LLM llama 3 é capaz de auxiliar no aprendizado de alunos iniciantes em lógica de programação.
                 
