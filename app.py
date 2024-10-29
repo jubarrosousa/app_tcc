@@ -3,7 +3,6 @@ import random
 import pandas as pd
 import uuid
 import sqlite3
-from streamlit_javascript import st_javascript
 
 
 introducao = """Olá, meu nome é Juliana, e meu TCC tem como objetivo avaliar se o modelo de LLM llama 3 é capaz de auxiliar no aprendizado de alunos iniciantes em lógica de programação.
