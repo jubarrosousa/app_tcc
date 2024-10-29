@@ -1,4 +1,1 @@
 msodbcsql17
-unixODBC 
-unixODBC-devel
-epel-release
