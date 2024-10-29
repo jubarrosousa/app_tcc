@@ -3,7 +3,12 @@ import random
 import pandas as pd
 import uuid
 import sqlite3
+import os
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
 
+username = st.secrets['DB_USERNAME']
+password = st.secrets['DB_PASSWORD']
 
 introducao = """Olá, meu nome é Juliana, e meu TCC tem como objetivo avaliar se o modelo de LLM llama 3 é capaz de auxiliar no aprendizado de alunos iniciantes em lógica de programação.
                 
@@ -615,6 +620,18 @@ elif st.session_state.pagina == 4:
 elif st.session_state.pagina == 5:
         
             id_usuario = str(uuid.uuid4())
+
+            # Configurar a conexão com o banco de dados
+            server = 'myfreesqldbserver25.database.windows.net'
+            database = 'myFreeDB'
+            driver = 'ODBC+Driver+18+for+SQL+Server'
+
+            connection_string = f'mssql+pyodbc://{username}:{password}@{server}/{database}?driver={driver}'
+
+            engine = create_engine(connection_string)
+            Session = sessionmaker(bind=engine)
+            session = Session()
+
             
             dados_resultados = {"id_usuario": id_usuario, "num_anos_leciona": st.session_state.tempo_lecionando, 
                                     "nm_materias_extra": st.session_state.materias_lecionadas_extra,
@@ -636,46 +653,50 @@ elif st.session_state.pagina == 5:
             
             print(dados_resultados)
             
-            conexao = sqlite3.connect('resultados_teste.db')
+            #conexao = sqlite3.connect('resultados_teste.db')
 
-            cursor = conexao.cursor()
+            #cursor = conexao.cursor()
 
-            colunas = ', '.join(dados_resultados.keys())  
-            placeholders = ', '.join(['?'] * len(dados_resultados))  # Gera '?, ?, ?, ?'
-            valores = tuple(dados_resultados.values()) 
+            with engine.connect() as conn:
 
-            # 5. Inserir o dicionário como uma nova linha na tabela
-            sql = f"INSERT INTO resultados ({colunas}) VALUES ({placeholders})"
-            cursor.execute(sql, valores)
+                colunas = ', '.join(dados_resultados.keys())  
+                placeholders = ', '.join([f':{key}' for key in dados_resultados.keys()])  # Gera '?, ?, ?, ?'
+                valores = dados_resultados
 
-            if len(st.session_state.materias_lecionadas) != 0:
-                usuario_disciplinas = [{"id_usuario":id_usuario, "nm_disciplina": v} for v in st.session_state.materias_lecionadas ]
+                sql = f"INSERT INTO resultados1 ({colunas}) VALUES ({placeholders})"
+                session.execute(text(sql), valores)
+
+                if len(st.session_state.materias_lecionadas) != 0:
+                    usuario_disciplinas = [{"id_usuario":id_usuario, "nm_disciplina": v} for v in st.session_state.materias_lecionadas ]
+                    
+                    for dict_disciplinas in usuario_disciplinas:
+                        colunas = ', '.join(dict_disciplinas.keys())  
+                        placeholders = ', '.join([f':{key}' for key in dict_disciplinas.keys()])  # Gera '?, ?, ?, ?'
+                        valores = dict_disciplinas
+
+                        # 5. Inserir o dicionário como uma nova linha na tabela
+                        sql = f"INSERT INTO usuario_disciplinas1 ({colunas}) VALUES ({placeholders})"
+                        session.execute(text(sql), valores)
+
+                if len(st.session_state.onde_leciona) != 0:
                 
-                for dict_disciplinas in usuario_disciplinas:
-                    colunas = ', '.join(dict_disciplinas.keys())  
-                    placeholders = ', '.join(['?'] * len(dict_disciplinas))  # Gera '?, ?, ?, ?'
-                    valores = tuple(dict_disciplinas.values()) 
+                    usuario_onde_leciona = [{"id_usuario":id_usuario, "nm_onde_leciona": v} for v in st.session_state.onde_leciona]
 
-                    # 5. Inserir o dicionário como uma nova linha na tabela
-                    sql = f"INSERT INTO usuario_disciplinas ({colunas}) VALUES ({placeholders})"
-                    cursor.execute(sql, valores)
+                    for dict_onde_leciona in usuario_onde_leciona:
+                        colunas = ', '.join(dict_onde_leciona.keys())  
+                        placeholders = ', '.join([f':{key}' for key in dict_onde_leciona.keys()])  # Gera '?, ?, ?, ?'
+                        valores = dict_onde_leciona
 
-            if len(st.session_state.onde_leciona) != 0:
-            
-                usuario_onde_leciona = [{"id_usuario":id_usuario, "nm_onde_leciona": v} for v in st.session_state.onde_leciona]
+                        # 5. Inserir o dicionário como uma nova linha na tabela
+                        sql = f"INSERT INTO usuario_onde_leciona1 ({colunas}) VALUES ({placeholders})"
+                        session.execute(text(sql), valores)
+                
+                session.commit()
+                session.close()
 
-                for dict_onde_leciona in usuario_onde_leciona:
-                    colunas = ', '.join(dict_onde_leciona.keys())  
-                    placeholders = ', '.join(['?'] * len(dict_onde_leciona))  # Gera '?, ?, ?, ?'
-                    valores = tuple(dict_onde_leciona.values()) 
-
-                    # 5. Inserir o dicionário como uma nova linha na tabela
-                    sql = f"INSERT INTO usuario_onde_leciona ({colunas}) VALUES ({placeholders})"
-                    cursor.execute(sql, valores)
-
-            # Confirmando e fechando a conexão
-            conexao.commit()
-            conexao.close()
+            # # Confirmando e fechando a conexão
+            # conexao.commit()
+            # conexao.close()
             # resultados = [
             #     (,), ("Banco de Dados",), ("Algoritmos e Estruturas de Dados",), 
             #     ("Redes de Computadores",), ("Inteligência Artificial",), ("Cibersegurança",), ("Computação Gráfica",),
