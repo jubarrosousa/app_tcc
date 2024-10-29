@@ -1,3 +1,6 @@
 pyodbc
 sqlalchemy
 sqlalchemy.orm
+unixodbc-dev
+msodbcsql17
+mssql-tools
