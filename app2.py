@@ -627,7 +627,7 @@ elif st.session_state.pagina == 5:
         # Configurar a conexão com o banco de dados
         server = 'myfreesqldbserver25.database.windows.net'
         database = 'myFreeDB'
-        driver = '{ODBC Driver 18 for SQL Server}'
+        driver = '{ODBC Driver 17 for SQL Server}'
 
         connection_string = f"DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}"
         
