@@ -3,6 +3,8 @@ import random
 import pandas as pd
 import uuid
 import sqlite3
+from streamlit_javascript import st_javascript
+
 
 introducao = """Olá, meu nome é Juliana, e meu TCC tem como objetivo avaliar se o modelo de LLM llama 3 é capaz de auxiliar no aprendizado de alunos iniciantes em lógica de programação.
                 
@@ -67,50 +69,92 @@ total_paginas = 5
 if "num_problema_1" not in st.session_state:
     opcoes_problema = [1, 2]
     num_problema_1 = random.choice(opcoes_problema)
-    st.session_state.num_problema_1 = num_problema_1
 
-if "num_solucao_1" not in st.session_state:
     opcoes_solucao = [1, 2, 3, 4]
     num_solucao_1 = random.choice(opcoes_solucao)
-    st.session_state.num_solucao_1 = num_solucao_1
 
-if "configuracao_1" not in st.session_state:
     opcoes_prompt = [1, 2, 3]
     configuracao_1_1 = random.choice(opcoes_prompt)
-    st.session_state.configuracao_1_1 = configuracao_1_1
 
-if "configuracao_2" not in st.session_state:
     configuracao_1_2 = random.choice([i for i in opcoes_prompt if i != configuracao_1_1])
+
+    st.session_state.num_problema_1 = num_problema_1
+    st.session_state.num_solucao_1 = num_solucao_1
+    st.session_state.configuracao_1_1 = configuracao_1_1
     st.session_state.configuracao_1_2 = configuracao_1_2
+
+    st.session_state.configuracao_total_1 = [num_problema_1,num_solucao_1,configuracao_1_1,configuracao_1_2]
+
+
+if "num_problema_2" not in st.session_state:
+
+    sorteio_diferente = False
+
+    while sorteio_diferente == False:
+        opcoes_problema = [1, 2]
+        num_problema_2 = random.choice(opcoes_problema)
+
+        opcoes_solucao = [1, 2, 3, 4]
+        num_solucao_2 = random.choice(opcoes_solucao)
+
+        opcoes_prompt = [1, 2, 3]
+        configuracao_2_1 = random.choice(opcoes_prompt)
+
+        configuracao_2_2 = random.choice([i for i in opcoes_prompt if i != configuracao_2_1])
+
+        configuracao_total_2 = [num_problema_2, num_solucao_2, configuracao_2_1, configuracao_2_2]
+
+        if configuracao_total_2 != st.session_state.configuracao_total_1:
+            st.session_state.num_problema_2 = num_problema_2
+            st.session_state.num_solucao_2 = num_solucao_2
+            st.session_state.configuracao_2_1 = configuracao_2_1
+            st.session_state.configuracao_2_2 = configuracao_2_2
+            st.session_state.configuracao_total_2 = configuracao_total_2
+            sorteio_diferente = True
+
+if "num_problema_3" not in st.session_state:
+
+    sorteio_diferente = False
+
+    while sorteio_diferente == False:
+        opcoes_problema = [1, 2]
+        num_problema_3 = random.choice(opcoes_problema)
+
+        opcoes_solucao = [1, 2, 3, 4]
+        num_solucao_3 = random.choice(opcoes_solucao)
+
+        opcoes_prompt = [1, 2, 3]
+        configuracao_3_1 = random.choice(opcoes_prompt)
+
+        configuracao_3_2 = random.choice([i for i in opcoes_prompt if i != configuracao_3_1])
+
+        configuracao_total_3 = [num_problema_3, num_solucao_3, configuracao_3_1, configuracao_3_2]
+
+        if configuracao_total_3 != st.session_state.configuracao_total_1 and configuracao_total_3 != st.session_state.configuracao_total_2:
+            st.session_state.num_problema_3 = num_problema_3
+            st.session_state.num_solucao_3 = num_solucao_3
+            st.session_state.configuracao_3_1 = configuracao_3_1
+            st.session_state.configuracao_3_2 = configuracao_3_2
+            st.session_state.configuracao_total_3 = configuracao_total_3
+            sorteio_diferente = True
+
 
 def pagina_atual():
     if 'pagina' not in st.session_state:
         st.session_state.pagina = 1
 
-    # if 'navegar' not in st.session_state:
-    #     st.session_state.navegar = None  # Controla a navegação
-
 # Funções para navegar entre páginas
 def proxima_pagina():
-
-        st.session_state.pagina += 1
+    st.session_state.pagina += 1
 
 def pagina_anterior():
     st.session_state.pagina -= 1
 
+
 pagina_atual()
-#proxima_pagina()
+
 # Variável para mensagem de erro
 erro = st.empty()
-
-# Lógica de navegação
-# if st.session_state.navegar == 'proxima':
-#     proxima_pagina()
-#     st.session_state.navegar = None  # Reseta o estado de navegação
-    
-# elif st.session_state.navegar == 'anterior':
-#     pagina_anterior()
-#     st.session_state.navegar = None  # Reseta o estado de navegação
 
 # Página 1: Dados Pessoais
 if st.session_state.pagina == 1:
@@ -179,7 +223,6 @@ elif st.session_state.pagina == 2:
     condicoes_2 = (df_comentarios["problema"] == st.session_state.num_problema_1) & (df_comentarios["solucao"] == st.session_state.num_solucao_1) & (df_comentarios["prompt"] == st.session_state.configuracao_1_2)
     comentario_2 = df_comentarios.loc[condicoes_2, "comentario_llm"].iloc[0]
     comentario_2_id = df_comentarios.loc[condicoes_2, "id"].iloc[0]
-
 
     with st.form(key='form_pagina2'):
         
@@ -274,12 +317,12 @@ elif st.session_state.pagina == 2:
             st.form_submit_button("Voltar", on_click=pagina_anterior)
             #voltar = st.form_submit_button("Voltar")
 
-        # with col2:
-        #     st.form_submit_button("Próxima", on_click=proxima_pagina)
+        with col3:
+             st.form_submit_button("Próxima", on_click=proxima_pagina)
         #     #proxima = st.form_submit_button("Próxima")
 
-        with col3:
-            enviar = st.form_submit_button("Enviar", on_click = proxima_pagina)
+        # with col3:
+        #     enviar = st.form_submit_button("Enviar", on_click = proxima_pagina)
 
     # if voltar:
     #     pagina_anterior()
@@ -319,9 +362,258 @@ elif st.session_state.pagina == 2:
             # )
             # conexao.commit()
             # conexao.close()
-
-            
 elif st.session_state.pagina == 3:
+
+    str_problema_2 = questoes[st.session_state.num_problema_2]
+    str_solucao_2 = solucoes[st.session_state.num_problema_2][st.session_state.num_solucao_2-1]
+
+    condicoes_3 = (df_comentarios["problema"] == st.session_state.num_problema_2) & (df_comentarios["solucao"] == st.session_state.num_solucao_2) & (df_comentarios["prompt"] == st.session_state.configuracao_2_1)
+    comentario_3 = df_comentarios.loc[condicoes_3, "comentario_llm"].iloc[0]
+    comentario_3_id = df_comentarios.loc[condicoes_3, "id"].iloc[0]
+
+    condicoes_4 = (df_comentarios["problema"] == st.session_state.num_problema_2) & (df_comentarios["solucao"] == st.session_state.num_solucao_2) & (df_comentarios["prompt"] == st.session_state.configuracao_2_2)
+    comentario_4 = df_comentarios.loc[condicoes_4, "comentario_llm"].iloc[0]
+    comentario_4_id = df_comentarios.loc[condicoes_4, "id"].iloc[0]
+
+    print(st.session_state.configuracao_total_1)
+
+    print(st.session_state.configuracao_total_2)
+
+
+    with st.form(key='form_pagina3'):
+        
+        st.header("Questão e Solução 2")
+        st.markdown("Avalie dois comentários diferentes feitos pelo modelo considerando a corretude do comentários e se ele é adequado para o perfil de um aluno que está iniciando seus estudos em programação.")
+
+        st.markdown("### Enunciado")
+        #st.write(str_problema_1)
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #4a4a4a; padding: 10px; border-radius: 5px;">
+                {str_problema_2}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.write("")
+
+        st.markdown("### Solução do aluno")
+        st.code(str_solucao_2, language='python')
+
+        st.write("")
+
+        st.markdown("### Comentário 1 do modelo")
+        #st.markdown(comentario_1)
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #4a4a4a; padding: 10px; border-radius: 5px;">
+                {comentario_3}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.write("")
+
+        nota_1 = st.radio(
+            "Considerando a corretude do comentário e se ele se adequa a um aluno iniciante em programação, o quanto você concorda com esse comentário? (*)",
+            options=["Concordo Totalmente", "Concordo Parcialmente", "Indiferente ou Neutro","Discordo Parcialmente", "Discordo Totalmente"],
+            key="nota_2_1"
+        )
+
+        st.write("")
+
+        st.markdown("### Comentário 2 do modelo")
+        #st.markdown(comentario_2)
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #4a4a4a; padding: 10px; border-radius: 5px;">
+                {comentario_4}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )        
+
+        st.write("")
+
+        nota_2 = st.radio(
+            "Considerando a corretude do comentário e se ele se adequa a um aluno iniciante em programação, o quanto você concorda com esse comentário? (*)",
+            options=["Concordo Totalmente", "Concordo Parcialmente", "Indiferente ou Neutro","Discordo Parcialmente", "Discordo Totalmente"],
+            key="nota_2_2"
+        )
+
+        st.write("")
+
+        preferencia_2 = st.radio(
+            "Entre os dois comentários, qual você prefere?(*)",
+            options=["Comentário 1", "Comentário 2"], key="preferencia_2"
+        )
+
+        st.write("")
+
+        texto_2 = st.text_area(
+                    label="Se puder, escreva o que te fez escolher um comentário ao outro:", 
+                    height=150,  # Define a altura da caixa
+                    placeholder="Escreva algo...",
+                    key= "texto_2"
+                )
+
+        #col1, col2, col3 = st.columns([1, 0, 1])
+        col1, col3 = st.columns([1, 1])
+
+        st.session_state.materias_lecionadas = st.session_state.materias_lecionadas
+        st.session_state.materias_lecionadas_extra = st.session_state.materias_lecionadas_extra
+        st.session_state.tempo_lecionando = st.session_state.tempo_lecionando
+        st.session_state.onde_leciona = st.session_state.onde_leciona
+
+        st.session_state.nota_1_1 = st.session_state.nota_1_1
+        st.session_state.nota_1_2 = st.session_state.nota_1_2
+        st.session_state.preferencia_1 = st.session_state.preferencia_1
+        st.session_state.texto_1 = st.session_state.texto_1
+        st.session_state.comentario_1_id = st.session_state.comentario_1_id
+        st.session_state.comentario_2_id = st.session_state.comentario_2_id
+
+        st.session_state.comentario_3_id = comentario_3_id
+        st.session_state.comentario_4_id = comentario_4_id
+
+        with col1:
+            st.form_submit_button("Voltar", on_click=pagina_anterior)
+            #voltar = st.form_submit_button("Voltar")
+
+        with col3:
+            st.form_submit_button("Próxima", on_click=proxima_pagina)
+            #proxima = st.form_submit_button("Próxima")
+
+elif st.session_state.pagina == 4:
+
+    str_problema_3 = questoes[st.session_state.num_problema_3]
+    str_solucao_3 = solucoes[st.session_state.num_problema_3][st.session_state.num_solucao_3-1]
+
+    condicoes_5 = (df_comentarios["problema"] == st.session_state.num_problema_3) & (df_comentarios["solucao"] == st.session_state.num_solucao_3) & (df_comentarios["prompt"] == st.session_state.configuracao_3_1)
+    comentario_5 = df_comentarios.loc[condicoes_5, "comentario_llm"].iloc[0]
+    comentario_5_id = df_comentarios.loc[condicoes_5, "id"].iloc[0]
+
+    condicoes_6 = (df_comentarios["problema"] == st.session_state.num_problema_3) & (df_comentarios["solucao"] == st.session_state.num_solucao_3) & (df_comentarios["prompt"] == st.session_state.configuracao_3_2)
+    comentario_6 = df_comentarios.loc[condicoes_6, "comentario_llm"].iloc[0]
+    comentario_6_id = df_comentarios.loc[condicoes_6, "id"].iloc[0]
+
+    with st.form(key='form_pagina4'):
+        
+        st.header("Questão e Solução 3")
+        st.markdown("Avalie dois comentários diferentes feitos pelo modelo considerando a corretude do comentários e se ele é adequado para o perfil de um aluno que está iniciando seus estudos em programação.")
+
+        st.markdown("### Enunciado")
+        #st.write(str_problema_1)
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #4a4a4a; padding: 10px; border-radius: 5px;">
+                {str_problema_3}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.write("")
+
+        st.markdown("### Solução do aluno")
+        st.code(str_solucao_3, language='python')
+
+        st.write("")
+
+        st.markdown("### Comentário 1 do modelo")
+        #st.markdown(comentario_1)
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #4a4a4a; padding: 10px; border-radius: 5px;">
+                {comentario_5}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.write("")
+
+        nota_1 = st.radio(
+            "Considerando a corretude do comentário e se ele se adequa a um aluno iniciante em programação, o quanto você concorda com esse comentário? (*)",
+            options=["Concordo Totalmente", "Concordo Parcialmente", "Indiferente ou Neutro","Discordo Parcialmente", "Discordo Totalmente"],
+            key="nota_3_1"
+        )
+
+        st.write("")
+
+        st.markdown("### Comentário 2 do modelo")
+        #st.markdown(comentario_2)
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #4a4a4a; padding: 10px; border-radius: 5px;">
+                {comentario_6}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )        
+
+        st.write("")
+
+        nota_2 = st.radio(
+            "Considerando a corretude do comentário e se ele se adequa a um aluno iniciante em programação, o quanto você concorda com esse comentário? (*)",
+            options=["Concordo Totalmente", "Concordo Parcialmente", "Indiferente ou Neutro","Discordo Parcialmente", "Discordo Totalmente"],
+            key="nota_3_2"
+        )
+
+        st.write("")
+
+        preferencia_1 = st.radio(
+            "Entre os dois comentários, qual você prefere?(*)",
+            options=["Comentário 1", "Comentário 2"], key="preferencia_3"
+        )
+
+        st.write("")
+
+        texto_3 = st.text_area(
+                    label="Se puder, escreva o que te fez escolher um comentário ao outro:", 
+                    height=150,  # Define a altura da caixa
+                    placeholder="Escreva algo...",
+                    key= "texto_3"
+                )
+
+        #col1, col2, col3 = st.columns([1, 0, 1])
+        col1, col3 = st.columns([1, 1])
+
+        st.session_state.materias_lecionadas = st.session_state.materias_lecionadas
+        st.session_state.materias_lecionadas_extra = st.session_state.materias_lecionadas_extra
+        st.session_state.tempo_lecionando = st.session_state.tempo_lecionando
+        st.session_state.onde_leciona = st.session_state.onde_leciona
+
+        st.session_state.nota_1_1 = st.session_state.nota_1_1
+        st.session_state.nota_1_2 = st.session_state.nota_1_2
+        st.session_state.preferencia_1 = st.session_state.preferencia_1
+        st.session_state.texto_1 = st.session_state.texto_1
+        st.session_state.comentario_1_id = st.session_state.comentario_1_id
+        st.session_state.comentario_2_id = st.session_state.comentario_2_id
+
+        st.session_state.nota_2_1 = st.session_state.nota_2_1
+        st.session_state.nota_2_2 = st.session_state.nota_2_2
+        st.session_state.preferencia_2 = st.session_state.preferencia_2
+        st.session_state.texto_2 = st.session_state.texto_2
+        st.session_state.comentario_3_id = st.session_state.comentario_3_id
+        st.session_state.comentario_4_id = st.session_state.comentario_4_id
+
+        st.session_state.comentario_5_id = comentario_5_id
+        st.session_state.comentario_6_id = comentario_6_id
+
+        with col1:
+            st.form_submit_button("Voltar", on_click=pagina_anterior)
+            #voltar = st.form_submit_button("Voltar")
+
+        # with col2:
+        #     st.form_submit_button("Próxima", on_click=proxima_pagina)
+        #     #proxima = st.form_submit_button("Próxima")
+
+        with col3:
+            enviar = st.form_submit_button("Enviar", on_click = proxima_pagina)
+
+elif st.session_state.pagina == 5:
         
             id_usuario = str(uuid.uuid4())
             
@@ -331,7 +623,17 @@ elif st.session_state.pagina == 3:
                                     "config_1_1": st.session_state.configuracao_1_1, 
                                     "nota_1_1": st.session_state.nota_1_1,"config_1_2": st.session_state.configuracao_1_2, 
                                     "nota_1_2":st.session_state.nota_1_2, "preferencia_1": st.session_state.preferencia_1,
-                                    "texto_1": st.session_state.texto_1}
+                                    "texto_1": st.session_state.texto_1,
+                                    "questao_2": st.session_state.num_problema_2, "sol_2": st.session_state.num_solucao_2,
+                                    "config_2_1": st.session_state.configuracao_2_1, 
+                                    "nota_2_1": st.session_state.nota_2_1,"config_2_2": st.session_state.configuracao_2_2, 
+                                    "nota_2_2":st.session_state.nota_2_2, "preferencia_2": st.session_state.preferencia_2,
+                                    "texto_2": st.session_state.texto_2,
+                                    "questao_3": st.session_state.num_problema_3, "sol_3": st.session_state.num_solucao_3,
+                                    "config_3_1": st.session_state.configuracao_3_1, 
+                                    "nota_3_1": st.session_state.nota_3_1,"config_3_2": st.session_state.configuracao_3_2, 
+                                    "nota_3_2":st.session_state.nota_3_2, "preferencia_3": st.session_state.preferencia_3,
+                                    "texto_3": st.session_state.texto_3}
             
             print(dados_resultados)
             
@@ -347,28 +649,30 @@ elif st.session_state.pagina == 3:
             sql = f"INSERT INTO resultados ({colunas}) VALUES ({placeholders})"
             cursor.execute(sql, valores)
 
+            if len(st.session_state.materias_lecionadas) != 0:
+                usuario_disciplinas = [{"id_usuario":id_usuario, "nm_disciplina": v} for v in st.session_state.materias_lecionadas ]
+                
+                for dict_disciplinas in usuario_disciplinas:
+                    colunas = ', '.join(dict_disciplinas.keys())  
+                    placeholders = ', '.join(['?'] * len(dict_disciplinas))  # Gera '?, ?, ?, ?'
+                    valores = tuple(dict_disciplinas.values()) 
 
-            usuario_disciplinas = [{"id_usuario":id_usuario, "nm_disciplina": v} for v in st.session_state.materias_lecionadas]
+                    # 5. Inserir o dicionário como uma nova linha na tabela
+                    sql = f"INSERT INTO usuario_disciplinas ({colunas}) VALUES ({placeholders})"
+                    cursor.execute(sql, valores)
+
+            if len(st.session_state.onde_leciona) != 0:
             
-            for dict_disciplinas in usuario_disciplinas:
-                colunas = ', '.join(dict_disciplinas.keys())  
-                placeholders = ', '.join(['?'] * len(dict_disciplinas))  # Gera '?, ?, ?, ?'
-                valores = tuple(dict_disciplinas.values()) 
+                usuario_onde_leciona = [{"id_usuario":id_usuario, "nm_onde_leciona": v} for v in st.session_state.onde_leciona]
 
-                # 5. Inserir o dicionário como uma nova linha na tabela
-                sql = f"INSERT INTO usuario_disciplinas ({colunas}) VALUES ({placeholders})"
-                cursor.execute(sql, valores)
-            
-            usuario_onde_leciona = [{"id_usuario":id_usuario, "nm_onde_leciona": v} for v in st.session_state.onde_leciona]
+                for dict_onde_leciona in usuario_onde_leciona:
+                    colunas = ', '.join(dict_onde_leciona.keys())  
+                    placeholders = ', '.join(['?'] * len(dict_onde_leciona))  # Gera '?, ?, ?, ?'
+                    valores = tuple(dict_onde_leciona.values()) 
 
-            for dict_onde_leciona in usuario_onde_leciona:
-                colunas = ', '.join(dict_onde_leciona.keys())  
-                placeholders = ', '.join(['?'] * len(dict_onde_leciona))  # Gera '?, ?, ?, ?'
-                valores = tuple(dict_onde_leciona.values()) 
-
-                # 5. Inserir o dicionário como uma nova linha na tabela
-                sql = f"INSERT INTO usuario_onde_leciona ({colunas}) VALUES ({placeholders})"
-                cursor.execute(sql, valores)
+                    # 5. Inserir o dicionário como uma nova linha na tabela
+                    sql = f"INSERT INTO usuario_onde_leciona ({colunas}) VALUES ({placeholders})"
+                    cursor.execute(sql, valores)
 
             # Confirmando e fechando a conexão
             conexao.commit()
