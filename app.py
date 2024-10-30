@@ -3,7 +3,7 @@ import random
 import pandas as pd
 import uuid
 import sqlite3
-import os
+#import os
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 
